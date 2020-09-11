@@ -36,6 +36,10 @@ spring:
 # ----------------------------------------
 # dev
 # ----------------------------------------
+logging.level:
+  org.springframework: ERROR
+  com.kang: DEBUG
+
 spring: 
   profiles: dev
   
