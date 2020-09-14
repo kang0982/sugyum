@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!--// main layout -->
+	<definition name="mainTemplate" template="/WEB-INF/tiles/layout/main/mainPageLayout.jsp">
+		<put-attribute name="title" value="kang"/>
+        <put-attribute name="asset" value="/WEB-INF/tiles/layout/main/mainPageAsset.jsp" />
+        <put-attribute name="header" value="/WEB-INF/tiles/layout/main/mainPageHeader.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/layout/main/mainPageFooter.jsp" />
+	</definition>
+
+	<!-- blank 페이지 -->
+	<definition name="blankTemplate" template="/WEB-INF/tiles/layout/blank/blankPageLayout.jsp">
+	</definition>
+	
+	<!-- 로그인 요청에 대한 페이지 설정-->
+	<definition name="/main/*" extends="mainTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/main/{1}.jsp" />
+	</definition>
+ 
+</tiles-definitions>
