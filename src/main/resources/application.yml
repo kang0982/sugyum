@@ -12,6 +12,10 @@ spring:
 
 server.port : 80
 
+
+logging.level:
+  net.chndol.study.mybatissample.mapper: TRACE
+
 ---
 # ----------------------------------------
 # local
@@ -24,28 +28,49 @@ spring:
   profiles: local
   
   devtools.livereload.enabled : true
-  
-  datasource:
-    platform: mysql
-    url: jdbc:mysql://localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true&serverTimezone=Asia/Seoul
-    username: kang
-    password: kang
-    driver-class-name: com.mysql.jdbc.Driver
 
----
-# ----------------------------------------
-# dev
-# ----------------------------------------
-logging.level:
-  org.springframework: ERROR
-  com.kang: DEBUG
+    
+  master:
+    datasource:
+      type: org.apache.tomcat.jdbc.pool.DataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true&serverTimezone=Asia/Seoul
+      username: kang
+      password: kang
+      testOnBorrow: true
+      validationInterval: 34000
+      validationQuery: SELECT 1
+  slave:
+    datasource:
+      type: org.apache.tomcat.jdbc.pool.DataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true&serverTimezone=Asia/Seoul
+      username: kang
+      password: kang
+      testOnBorrow: true
+      validationInterval: 34000
+      validationQuery: SELECT 1
 
-spring: 
-  profiles: dev
-  
-  datasource:
-    platform: mysql
-    url: jdbc:mysql:/localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true&serverTimezone=Asia/Seoul
-    username: kang
-    password: kang
-    driver-class-name: com.mysql.jdbc.Driver
+#---
+## ----------------------------------------
+## dev
+## ----------------------------------------
+#logging.level:
+#  org.springframework: ERROR
+#  com.kang: DEBUG
+#
+#spring: 
+#  profiles: dev
+#  
+#  master.datasource:
+#    platform: mysql
+#    url: jdbc:mysql://localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true&serverTimezone=Asia/Seoul
+#    username: kang
+#    password: kang
+#    driver-class-name: com.mysql.jdbc.Driver
+#  slave.datasource:
+#    platform: mysql
+#    url: jdbc:mysql://localhost:3306/kang?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=true&serverTimezone=Asia/Seoul
+#    username: kang
+#    password: kang
+#    driver-class-name: com.mysql.jdbc.Driver

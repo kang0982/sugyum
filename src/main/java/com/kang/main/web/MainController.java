@@ -27,6 +27,7 @@ public class MainController {
 	
 	@RequestMapping("/")
 	private String main() throws Exception{
+		Logger.debug("main!!");
 		return "main";
 	}
 	
