@@ -1,14 +1,21 @@
 package com.kang.comn.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.boot.autoconfigure.web.servlet.error.AbstractErrorController;
+import org.springframework.boot.web.error.ErrorAttributeOptions;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * <pre>
@@ -20,14 +27,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * </pre>
  */
 @Controller
-public class MyErrorController implements  ErrorController   {
-    
+@RequestMapping("${server.error.path}")
+public class MyErrorController extends  AbstractErrorController    {
+
+	/**
+	 * @param errorAttributes
+	 */
+	public MyErrorController(ErrorAttributes errorAttributes) {
+		super(errorAttributes);
+	}
+
 	protected Log Logger = LogFactory.getLog(getClass());
 	
 	private static String PRIFIX = "/error/";
-	
-	@RequestMapping("/error")
-	public String handleError(HttpServletRequest request) {
+
+	@RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
+	public String errorHtml(HttpServletRequest request) {
 	    Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 	    
 	    if (status != null) {
@@ -42,9 +57,19 @@ public class MyErrorController implements  ErrorController   {
 	    }
 	    return PRIFIX + "error";
 	}
+
+	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Map<String, Object> handleError(HttpServletRequest request) {
+        Map<String, Object> errorAttributes = super.getErrorAttributes(request, true);
+        return errorAttributes;
+    }
 	
 	@Override
-	public String getErrorPath() {
-	    return null;
+	public String getErrorPath(){
+		return null;
 	}
+	
+	
+
 }
