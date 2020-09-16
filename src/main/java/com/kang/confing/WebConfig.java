@@ -21,11 +21,11 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 public class WebConfig implements WebMvcConfigurer {
 	
 	/**
-	 * webjar /asset 경로로 추가
+	 * webjar 
 	 * */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/asset/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 	}
 
     /**

@@ -6,18 +6,33 @@
 	<!--// main layout -->
 	<definition name="mainTemplate" template="/WEB-INF/tiles/layout/main/mainPageLayout.jsp">
 		<put-attribute name="title" value="kang"/>
-        <put-attribute name="asset" value="/WEB-INF/tiles/layout/main/mainPageAsset.jsp" />
+        <put-attribute name="assetHeader" value="/WEB-INF/tiles/layout/main/mainPageAssetHeader.jsp" />
         <put-attribute name="header" value="/WEB-INF/tiles/layout/main/mainPageHeader.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/tiles/layout/main/mainPageSidebar.jsp" />
+        <put-attribute name="tobbar" value="/WEB-INF/tiles/layout/main/mainPageTopbar.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/layout/main/mainPageFooter.jsp" />
+        <put-attribute name="assetFooter" value="/WEB-INF/tiles/layout/main/mainPageAssetFooter.jsp" />
 	</definition>
 
+	<!--// Error layout -->
+	<definition name="errorTemplate" template="/WEB-INF/tiles/layout/error/errorPageLayout.jsp">
+		<put-attribute name="title" value="Error"/>
+        <put-attribute name="assetHeader" value="/WEB-INF/tiles/layout/main/mainPageAssetHeader.jsp" />
+        <put-attribute name="assetFooter" value="/WEB-INF/tiles/layout/main/mainPageAssetFooter.jsp" />
+	</definition>
+
+	<!-- ERROR 페이지 -->
+	<definition name="/error/*" extends="errorTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/error/{1}.jsp" />
+	</definition>
+	
 	<!-- blank 페이지 -->
 	<definition name="blankTemplate" template="/WEB-INF/tiles/layout/blank/blankPageLayout.jsp">
 	</definition>
 	
-	<!-- 로그인 요청에 대한 페이지 설정-->
+	<!-- 기본 페이지 설정-->
 	<definition name="/main/*" extends="mainTemplate">
-		<put-attribute name="body" value="/WEB-INF/jsp/main/{1}.jsp" />
+		<put-attribute name="content" value="/WEB-INF/jsp/main/{1}.jsp" />
 	</definition>
  
 </tiles-definitions>

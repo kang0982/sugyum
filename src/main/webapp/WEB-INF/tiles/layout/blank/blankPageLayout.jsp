@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=1024, initial-scale=0.3">     
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>   
     <title><tiles:insertAttribute name="title" /></title>    
-	<tiles:insertAttribute name="asset" />
+	<tiles:insertAttribute name="assetHeader" />
 </head>
 <body>
 	<tiles:insertAttribute name="body" />

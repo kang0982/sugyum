@@ -8,13 +8,20 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
-      
+    
     contentnegotiation:
       favor-parameter: true 
       media-types: 
         xls: application/vnd.ms-ecel
+              
+    static-path-pattern: /asset/**
     
+  resources:
+    static-locations: classpath:/static/
+    add-mappings: true
+      
 
+    
   output.ansi.enabled: always    
 
 server:
