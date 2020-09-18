@@ -20,9 +20,9 @@ spring:
     static-locations: classpath:/static/
     add-mappings: true
       
-
-    
   output.ansi.enabled: always    
+  
+
 
 server:
   port: 80

@@ -25,6 +25,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<verbose>true</verbose>
+					<fork>true</fork>
+ 					<executable>${JAVA_HOME}/bin/javac</executable>
+					<compilerVersion>1.8</compilerVersion>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -35,11 +41,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
@@ -47,7 +48,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
-		
+		<!-- 보안 -->
+  		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>  
+  		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+		</dependency>  
+
 		<!-- WAS -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -61,7 +71,11 @@
 			<version>1.11.3</version>
 		</dependency>
 
-
+		<!-- DB -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -149,5 +163,9 @@
 		    <version>4.1.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 	</dependencies>
 </project>

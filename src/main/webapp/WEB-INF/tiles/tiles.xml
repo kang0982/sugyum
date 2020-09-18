@@ -21,9 +21,21 @@
         <put-attribute name="assetFooter" value="/WEB-INF/tiles/layout/main/mainPageAssetFooter.jsp" />
 	</definition>
 
+	<!--// login layout -->
+	<definition name="loginTemplate" template="/WEB-INF/tiles/layout/login/loginPageLayout.jsp">
+		<put-attribute name="title" value="login"/>
+        <put-attribute name="assetHeader" value="/WEB-INF/tiles/layout/main/mainPageAssetHeader.jsp" />
+        <put-attribute name="assetFooter" value="/WEB-INF/tiles/layout/main/mainPageAssetFooter.jsp" />
+	</definition>
+
 	<!-- ERROR 페이지 -->
 	<definition name="/error/*" extends="errorTemplate">
 		<put-attribute name="content" value="/WEB-INF/jsp/error/{1}.jsp" />
+	</definition>
+
+	<!-- login 페이지 -->
+	<definition name="/login/*" extends="loginTemplate">
+		<put-attribute name="content" value="/WEB-INF/jsp/login/{1}.jsp" />
 	</definition>
 	
 	<!-- blank 페이지 -->
