@@ -1,5 +1,7 @@
 package com.kang.main.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,12 @@ public class MainController {
 	@RequestMapping("/")
 	private String main() throws Exception{
 		Logger.debug("main!!");
+		return PREFIX + "main";
+	}
+
+	@RequestMapping("/search")
+	private String search(HttpServletRequest request) throws Exception{
+		Logger.debug("request!! + " + request.getParameter("test"));
 		return PREFIX + "main";
 	}
 	

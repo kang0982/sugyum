@@ -14,12 +14,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
                   </div>
-                  <form class="user" method="post" action="/login">
+                  <form id="loginFrm" class="user" method="post" action="/login">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username"  placeholder="Enter Id...">
+                      <input type="text" class="form-control form-control-user" id="username" name="username"  placeholder="Enter Id..." required>
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" name="password" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password" required>
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      
+  </div>    
 <c:if test="${error eq 'true'}">
 <div id="login_alert" class="alert alert-danger" role="alert">
    <strong>로그인 실패</strong> 아이디 혹은 비번이 다릅니다.
@@ -47,4 +47,29 @@ $(document).ready(function(){
 	$('#login_alert').slideUp( 2000 ).delay( 800000 ).fadeOut(1000000);
 });
 </script>
-</c:if>      
+</c:if>  
+
+<script>
+$('#loginFrm').submit(function(){
+	var loginSaved = $('#customCheck').is(':checked');
+	if(loginSaved){
+		localStorage.setItem('username', $('#username').val());
+		localStorage.setItem('loginSaved', 'Y'); 
+	}else{
+		localStorage.removeItem('username');
+	}
+});// end submit()
+
+$(document).ready(function(){
+	var loginSaved = localStorage.getItem('loginSaved');
+	if(loginSaved == 'Y'){
+		var username = localStorage.getItem('username');
+		$('#username').val(username);
+		$('#customCheck').attr('checked',true);
+	}else{
+		$('#customCheck').attr('checked',false);
+	} 
+});
+</script>
+
+    

@@ -25,6 +25,7 @@
 	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 	<title><tiles:insertAttribute name="title" /></title>    
 	<tiles:insertAttribute name="assetHeader" />
+
 </head>
 <body id="page-top">
   <!-- Page Wrapper -->

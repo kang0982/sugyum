@@ -1,12 +1,19 @@
 package com.kang.confing;
 
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kang.util.HTMLCharacterEscapes;
+import com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter;
 
 /**
  * <pre>
@@ -51,5 +58,36 @@ public class WebConfig implements WebMvcConfigurer {
 	    resolver.setOrder(1);
 	    return resolver;
     }
+    
+    
+ 	/**
+ 	 * Xss 공격
+ 	 * */
+     @SuppressWarnings({ "unchecked", "rawtypes" })
+ 	// Form data
+     @Bean
+     public FilterRegistrationBean getXssEscapeServletFilterRegistrationBean() {
+ 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+         registrationBean.setFilter(new XssEscapeServletFilter());
+         registrationBean.setOrder(1);
+         registrationBean.addUrlPatterns("/*"); //filter를 거칠 url patterns
+         return registrationBean;
+     }
 
+     /**
+      * html 캐릭터 변환
+      * */
+     @Bean
+     public HttpMessageConverter<?> escapingConverter() {
+         ObjectMapper objectMapper = new ObjectMapper();
+         objectMapper.getFactory().setCharacterEscapes(new HTMLCharacterEscapes());
+//       objectMapper.registerModule(new JavaTimeModule());
+//       objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+         MappingJackson2HttpMessageConverter escapingConverter = new MappingJackson2HttpMessageConverter();
+         escapingConverter.setObjectMapper(objectMapper);
+
+         return escapingConverter;
+     }
+     
 }
