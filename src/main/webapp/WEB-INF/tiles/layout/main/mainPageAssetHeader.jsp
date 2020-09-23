@@ -6,9 +6,12 @@
 
 <!-- Custom styles for this template-->
 <link href="${ASSET_ROOT}/css/sb-admin-2.css" rel="stylesheet">
+<%-- <link href="${ASSET_ROOT}/css/bootstrap-datepicker3.css" rel="stylesheet"> --%>
+
 <!-- Bootstrap core JavaScript-->
 <script src="${ASSET_ROOT}/vendor/jquery/jquery.js"></script>
 <script src="${ASSET_ROOT}/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<%-- <script src="${ASSET_ROOT}/vendor/bootstrap/js/bootstrap-datepicker.js"></script> --%>
 
 <!-- Core plugin JavaScript-->
 <script src="${ASSET_ROOT}/vendor/jquery-easing/jquery.easing.js"></script>
