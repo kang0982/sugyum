@@ -1,4 +1,4 @@
-package com.kang.comn.web;
+package com.sugyum.comn.web;
 
 import java.util.Map;
 
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * <pre>
  * 1. 프로젝트명 :
- * 2. 패키지명 : com.kang.comn
+ * 2. 패키지명 : com.sugyum.comn
  * 3. 작성일 : 2020. 9. 15 
  * 4. 작성자 : kang
  * 5. 설명 :

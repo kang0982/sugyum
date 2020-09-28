@@ -39,14 +39,30 @@
       </div>
   </div>    
 <c:if test="${error eq 'true'}">
-<div id="login_alert" class="alert alert-danger" role="alert">
+<!-- <div id="login_alert" class="alert alert-danger" role="alert">
    <strong>로그인 실패</strong> 아이디 혹은 비번이 다릅니다.
 </div>
 <script>
 $(document).ready(function(){
 	$('#login_alert').slideUp( 2000 ).delay( 800000 ).fadeOut(1000000);
 });
-</script>
+</script> -->
+<div class="row justify-content-center">
+	<div class="col-10">
+		<div class="alert-danger" data-example-id="dismissible-alert-js">
+		  <div class="alert alert-danger alert-dismissible " role="alert">
+		    <button id="btnAlertClose" type="button" class="close" data-dismiss="alert" aria-label="Close">
+		    	<span aria-hidden="true">×</span>
+		    </button>
+		    <h4 id="oh-snap!-you-got-an-error!">로그인 실패
+		    	<a class="anchorjs-link" href="#oh-snap!-you-got-an-error!"><span class="anchorjs-icon"></span></a>
+		    </h4>
+		    <p>아이디 혹은 비번이 다릅니다.</p>
+		  </div>
+		</div>
+	</div>
+</div>
+
 </c:if>  
 
 <script>

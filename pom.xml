@@ -8,11 +8,11 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.kang</groupId>
-	<artifactId>crawler</artifactId>
+	<groupId>com.sugyum</groupId>
+	<artifactId>sugyum</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>crawler</name>
-	<description>crawler Test</description>
+	<name>sugyum</name>
+	<description>sugyum</description>
 
 	<properties>
 		<java.version>1.8</java.version>

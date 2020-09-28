@@ -1,4 +1,4 @@
-package com.kang.confing;
+package com.sugyum.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.csrf().disable()
         	
         		.authorizeRequests()
-            	.antMatchers("/main/**").access("hasRole('ADMIN')")
+            	//.antMatchers("/main/**").access("hasRole('ADMIN')")
             	.antMatchers("/error/**").permitAll()
             	.antMatchers("/test/**").permitAll()
                 .antMatchers("/**").authenticated()

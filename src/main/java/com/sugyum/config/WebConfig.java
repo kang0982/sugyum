@@ -1,4 +1,4 @@
-package com.kang.confing;
+package com.sugyum.config;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -12,13 +12,13 @@ import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kang.util.HTMLCharacterEscapes;
+import com.sugyum.util.HTMLCharacterEscapes;
 import com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter;
 
 /**
  * <pre>
  * 1. 프로젝트명 :
- * 2. 패키지명 : com.kang
+ * 2. 패키지명 : com.sugyum
  * 3. 작성일 : 2020. 9. 11 
  * 4. 작성자 : kang
  * 5. 설명 :

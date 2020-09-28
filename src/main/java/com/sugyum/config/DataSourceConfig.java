@@ -1,4 +1,4 @@
-package com.kang.confing;
+package com.sugyum.config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * <pre>
  * 1. 프로젝트명 :
- * 2. 패키지명 : com.kang.confing
+ * 2. 패키지명 : com.sugyum.confing
  * 3. 작성일 : 2020. 9. 11 
  * 4. 작성자 : kang
  * 5. 설명  :@Service 클래스의 각 메써드 레벨에 명시하는 @Transactional 어노테이션으로 마스터, 슬레이브로 향할 SQL 문을 결정할 수 있다.
